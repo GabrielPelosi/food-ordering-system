@@ -58,6 +58,10 @@ public class OrderItem extends BaseEntity<OrderItemId> {
         return subTotal;
     }
 
+    public UUID getProductId(){
+        return product.getId().getValue();
+    }
+
 
     public static final class Builder {
         private OrderItemId orderItemId;

@@ -198,7 +198,7 @@ public class Order extends AggregateRoot<OrderId> {
             return this;
         }
 
-        public Builder money(Money val) {
+        public Builder price(Money val) {
             price = val;
             return this;
         }
