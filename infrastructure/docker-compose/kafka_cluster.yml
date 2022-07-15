@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  schema-registry:
+    image: confluentinc/cp-schema-registry:${KAFKA_VERSION}
+    hostname: schema-registry
+    depends_on:
+      - kafka-broker-1
+      - kafka-broker-2
+      - kafka-broker-3
+    ports:
+      - "8081:8081"
+    environment:
+      SCHEMA_REGISTRY HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: 'zookeeper:2181'
+      SCHEMA_REGISTRY LISTENERS: http://schema-registry:8081
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka-broker-2:9092,L
+      SCHEMA_REGISTRY_DEBUG: 'true'
+    networks:
+      ${GLOBAL_NETWORK:-kafka)
+    kafka-broker-1:
+      image: confluentinc/cp-kafka:${KAFKA_VERSION}
+      hostname: kafka-broker-1
+      ports:
+        - "19892:19892"
+      environment:
+        KAFKA BROKER_ID: 1
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        KAFKA_ADVERTISED LISTENERS: PLAINTEXT://kafka-broker-1:9092,LISTENER_LOCAL://localhost:19092
+        KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,LISTENER_LOCAL:PLAINTEXT
+        KAFKA INTER_BROKER_LISTENER_NAME: PLAINTEXT
+        KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+        KAFKA_COMPRESSION_TYPE: producer
+      volumes:
+        - "./volumes/kafka/broker-1:/var/lib/kafka/data"
+      networks:
+        ${GLOBAL NETWORK:-kafka)
