@@ -1,10 +1,7 @@
 package com.food.ordering.system.order.service.dataaccess.order.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -16,6 +13,7 @@ import java.util.UUID;
 @IdClass(OrderItemEntityId.class)
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderItemEntity {
