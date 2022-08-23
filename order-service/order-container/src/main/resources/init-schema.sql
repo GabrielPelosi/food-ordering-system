@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS "order".order_items CASCADE;
 
 CREATE TABLE "order".order_items
 (
-    id uuid NOT NULL,
+    id bigint NOT NULL,
     order_id uuid NOT NULL,
     product_id uuid NOT NULL,
     price numeric(10,2) NOT NULL,
