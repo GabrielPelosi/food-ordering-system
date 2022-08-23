@@ -15,15 +15,15 @@ spring:
   jpa:
     open-in-view: false
     show-sql: true
-    database-platform: org.hibernate.dialect.PostgresSQL9Dialect
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgresSQL9Dialect
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres?currentSchema=order?binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
-    username: postgres
+    username: user
     password: admin
-    driver-class-name: org.postgres.Driver
+    driver-class-name: org.postgresql.Driver
     platform: postgres
     schema: classpath:init-schema.sql
     initialization-mode: always
