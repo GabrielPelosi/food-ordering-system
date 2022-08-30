@@ -59,7 +59,7 @@ public class PaymentMessagingDataMapper {
                 .build();
     }
     public PaymentRequest
-    paymentRequestToPaymentRequestAvroModel(PaymentRequestAvroModel paymentRequestAvroModel){
+    paymentRequestAvroModelToPaymentRequest(PaymentRequestAvroModel paymentRequestAvroModel){
         return PaymentRequest.builder()
                 .id(UUID.randomUUID().toString())
                 .sagaId("")

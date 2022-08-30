@@ -2,6 +2,7 @@ package com.food.ordering.payment.service.messaging.listener.kafka;
 
 import com.food.ordering.payment.service.messaging.mapper.PaymentMessagingDataMapper;
 import com.food.ordering.system.kafka.consumer.KafkaConsumer;
+import com.food.ordering.system.kafka.order.avro.model.PaymentOrderStatus;
 import com.food.ordering.system.kafka.order.avro.model.PaymentRequestAvroModel;
 import com.food.ordering.system.payment.service.domain.ports.input.message.listener.PaymentRequestMessageListener;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +37,15 @@ public class PaymentRequestKafkaListener implements KafkaConsumer<PaymentRequest
                 keys.toString(),
                 partitions.toString(),
                 offset.toString());
+        messages.forEach(paymentRequestAvroModel -> {
+            if(PaymentOrderStatus.PENDING == paymentRequestAvroModel.getPaymentOrderStatus()){
+                log.info("Processing payment for order id: {}", paymentRequestAvroModel.getOrderId());
+                paymentRequestMessageListener.completePayment(paymentMessagingDataMapper.paymentRequestAvroModelToPaymentRequest(paymentRequestAvroModel));
+            } else if (PaymentOrderStatus.CANCELLED == paymentRequestAvroModel.getPaymentOrderStatus()) {
+                log.info("Cancelling payment for order id: {}", paymentRequestAvroModel.getOrderId());
+                paymentRequestMessageListener.cancelPayment(paymentMessagingDataMapper.paymentRequestAvroModelToPaymentRequest(paymentRequestAvroModel));
+            }
+        });
 
 
     }
