@@ -15,6 +15,13 @@
         <module>payment-service/payment-messaging</module>
         <module>payment-service/payment-domain/payment-domain-core</module>
         <module>payment-service/payment-domain/payment-application-service</module>
+        <module>restaurant-service</module>
+        <module>restaurant-service/restaurant-container</module>
+        <module>restaurant-service/restaurant-dataacess</module>
+        <module>restaurant-service/restaurant-domain</module>
+        <module>restaurant-service/restaurant-messaging</module>
+        <module>restaurant-service/restaurant-domain/restaurant-domain-core</module>
+        <module>restaurant-service/restaurant-domain/restaurant-application-service</module>
     </modules>
 
     <parent>
