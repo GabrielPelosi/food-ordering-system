@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public class Restaurant extends AggregateRoot<RestaurantId> {
     private OrderApproval orderApproval;
-    public boolean active;
+    private boolean active;
     private final OrderDetail orderDetail;
 
     public void validateOrder(List<String> failureMessages){
@@ -77,7 +77,7 @@ public class Restaurant extends AggregateRoot<RestaurantId> {
         private Builder() {
         }
 
-        public Builder id(RestaurantId val) {
+        public Builder restaurantId(RestaurantId val) {
             restaurantId = val;
             return this;
         }

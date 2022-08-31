@@ -24,7 +24,7 @@ public class Product extends BaseEntity<ProductId> {
         available = builder.available;
     }
 
-    public static Builder newBuilder() {
+    public static Builder builder() {
         return new Builder();
     }
 
@@ -55,7 +55,7 @@ public class Product extends BaseEntity<ProductId> {
         private Builder() {
         }
 
-        public Builder id(ProductId val) {
+        public Builder productId(ProductId val) {
             productId = val;
             return this;
         }
