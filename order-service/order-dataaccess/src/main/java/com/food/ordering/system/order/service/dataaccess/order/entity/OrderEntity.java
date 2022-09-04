@@ -1,7 +1,6 @@
 package com.food.ordering.system.order.service.dataaccess.order.entity;
 
-
-import com.food.ordering.system.domain.valueObject.OrderStatus;
+import com.food.ordering.system.domain.valueobject.OrderStatus;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,15 +9,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-@Table(name = "orders")
-@Entity
 @Getter
-@Builder
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "orders")
+@Entity
 public class OrderEntity {
-
     @Id
     private UUID id;
     private UUID customerId;

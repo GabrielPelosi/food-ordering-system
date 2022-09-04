@@ -9,8 +9,6 @@ payment-service:
   payment-request-topic-name: payment-request
   payment-response-topic-name: payment-response
 
-
-
 spring:
   jpa:
     open-in-view: false
@@ -20,16 +18,14 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL9Dialect
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=payment?binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
-    username: user
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=payment&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
+    username: postgres
     password: admin
     driver-class-name: org.postgresql.Driver
     platform: postgres
     schema: classpath:init-schema.sql
     data: classpath:init-data.sql
     initialization-mode: always
-
-
 
 kafka-config:
   bootstrap-servers: localhost:19092, localhost:29092, localhost:39092

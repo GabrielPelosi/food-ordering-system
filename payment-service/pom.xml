@@ -10,10 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>payment-service</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>payment-domain</module>
+        <module>payment-dataaccess</module>
+        <module>payment-messaging</module>
+        <module>payment-container</module>
+    </modules>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
 
 </project>

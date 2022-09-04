@@ -20,7 +20,6 @@ services:
   kafka-broker-1:
     image: confluentinc/cp-kafka:${KAFKA_VERSION}
     hostname: kafka-broker-1
-    container_name: kafka-broker-1
     ports:
       - "19092:19092"
     environment:
@@ -38,7 +37,6 @@ services:
   kafka-broker-2:
     image: confluentinc/cp-kafka:${KAFKA_VERSION}
     hostname: kafka-broker-2
-    container_name: kafka-broker-2
     ports:
       - "29092:29092"
     environment:
@@ -46,7 +44,7 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker-2:9092,LISTENER_LOCAL://localhost:29092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,LISTENER_LOCAL:PLAINTEXT
-      KAFKA_LINTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_COMPRESSION_TYPE: producer
     volumes:
@@ -56,7 +54,6 @@ services:
   kafka-broker-3:
     image: confluentinc/cp-kafka:${KAFKA_VERSION}
     hostname: kafka-broker-3
-    container_name: kafka-broker-3
     ports:
       - "39092:39092"
     environment:

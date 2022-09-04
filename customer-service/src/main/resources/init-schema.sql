@@ -1,12 +1,8 @@
 DROP SCHEMA IF EXISTS customer CASCADE;
 
-
 CREATE SCHEMA customer;
-set search_path to customer;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
-DROP TABLE IF EXISTS customer.customers CASCADE;
 
 CREATE TABLE customer.customers
 (
@@ -14,22 +10,20 @@ CREATE TABLE customer.customers
     username character varying COLLATE pg_catalog."default" NOT NULL,
     first_name character varying COLLATE pg_catalog."default" NOT NULL,
     last_name character varying COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT customer_pkey PRIMARY KEY (id)
+    CONSTRAINT customers_pkey PRIMARY KEY (id)
 );
-
 
 DROP MATERIALIZED VIEW IF EXISTS customer.order_customer_m_view;
 
 CREATE MATERIALIZED VIEW customer.order_customer_m_view
 TABLESPACE pg_default
 AS
-    SELECT id,
+ SELECT id,
     username,
     first_name,
     last_name
-    FROM customer.customers
+   FROM customer.customers
 WITH DATA;
-
 
 refresh materialized VIEW customer.order_customer_m_view;
 
@@ -40,9 +34,9 @@ returns trigger
 AS '
 BEGIN
     refresh materialized VIEW customer.order_customer_m_view;
-RETURN null;
+    return null;
 END;
-' LANGUAGE plpgsql;
+'  LANGUAGE plpgsql;
 
 DROP trigger IF EXISTS refresh_order_customer_m_view ON customer.customers;
 

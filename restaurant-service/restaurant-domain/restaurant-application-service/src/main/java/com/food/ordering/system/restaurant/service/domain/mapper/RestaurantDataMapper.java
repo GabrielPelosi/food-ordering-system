@@ -1,10 +1,9 @@
 package com.food.ordering.system.restaurant.service.domain.mapper;
 
-
-import com.food.ordering.system.domain.valueObject.Money;
-import com.food.ordering.system.domain.valueObject.OrderId;
-import com.food.ordering.system.domain.valueObject.OrderStatus;
-import com.food.ordering.system.domain.valueObject.RestaurantId;
+import com.food.ordering.system.domain.valueobject.Money;
+import com.food.ordering.system.domain.valueobject.OrderId;
+import com.food.ordering.system.domain.valueobject.OrderStatus;
+import com.food.ordering.system.domain.valueobject.RestaurantId;
 import com.food.ordering.system.restaurant.service.domain.dto.RestaurantApprovalRequest;
 import com.food.ordering.system.restaurant.service.domain.entity.OrderDetail;
 import com.food.ordering.system.restaurant.service.domain.entity.Product;
@@ -16,7 +15,8 @@ import java.util.stream.Collectors;
 
 @Component
 public class RestaurantDataMapper {
-    public Restaurant restaurantApprovalRequestToRestaurant(RestaurantApprovalRequest restaurantApprovalRequest) {
+    public Restaurant restaurantApprovalRequestToRestaurant(RestaurantApprovalRequest
+                                                                             restaurantApprovalRequest) {
         return Restaurant.builder()
                 .restaurantId(new RestaurantId(UUID.fromString(restaurantApprovalRequest.getRestaurantId())))
                 .orderDetail(OrderDetail.builder()

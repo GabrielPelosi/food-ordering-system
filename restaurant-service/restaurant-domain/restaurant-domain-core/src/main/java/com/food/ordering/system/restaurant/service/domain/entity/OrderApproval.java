@@ -1,22 +1,21 @@
 package com.food.ordering.system.restaurant.service.domain.entity;
 
 import com.food.ordering.system.domain.entity.BaseEntity;
-import com.food.ordering.system.domain.valueObject.OrderApprovalStatus;
-import com.food.ordering.system.domain.valueObject.OrderId;
-import com.food.ordering.system.domain.valueObject.RestaurantId;
-import com.food.ordering.system.restaurant.service.domain.valueObject.OrderApprovalId;
+import com.food.ordering.system.domain.valueobject.OrderApprovalStatus;
+import com.food.ordering.system.domain.valueobject.OrderId;
+import com.food.ordering.system.domain.valueobject.RestaurantId;
+import com.food.ordering.system.restaurant.service.domain.valueobject.OrderApprovalId;
 
 public class OrderApproval extends BaseEntity<OrderApprovalId> {
-
     private final RestaurantId restaurantId;
     private final OrderId orderId;
-    private final OrderApprovalStatus orderApprovalStatus;
+    private final OrderApprovalStatus approvalStatus;
 
     private OrderApproval(Builder builder) {
         setId(builder.orderApprovalId);
         restaurantId = builder.restaurantId;
         orderId = builder.orderId;
-        orderApprovalStatus = builder.orderApprovalStatus;
+        approvalStatus = builder.approvalStatus;
     }
 
     public static Builder builder() {
@@ -32,15 +31,15 @@ public class OrderApproval extends BaseEntity<OrderApprovalId> {
         return orderId;
     }
 
-    public OrderApprovalStatus getOrderApprovalStatus() {
-        return orderApprovalStatus;
+    public OrderApprovalStatus getApprovalStatus() {
+        return approvalStatus;
     }
 
     public static final class Builder {
         private OrderApprovalId orderApprovalId;
         private RestaurantId restaurantId;
         private OrderId orderId;
-        private OrderApprovalStatus orderApprovalStatus;
+        private OrderApprovalStatus approvalStatus;
 
         private Builder() {
         }
@@ -60,8 +59,8 @@ public class OrderApproval extends BaseEntity<OrderApprovalId> {
             return this;
         }
 
-        public Builder orderApprovalStatus(OrderApprovalStatus val) {
-            orderApprovalStatus = val;
+        public Builder approvalStatus(OrderApprovalStatus val) {
+            approvalStatus = val;
             return this;
         }
 

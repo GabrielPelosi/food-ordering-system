@@ -1,10 +1,10 @@
 package com.food.ordering.system.payment.service.dataaccess.credithistory.mapper;
 
-import com.food.ordering.system.domain.valueObject.CustomerId;
-import com.food.ordering.system.domain.valueObject.Money;
+import com.food.ordering.system.domain.valueobject.CustomerId;
+import com.food.ordering.system.domain.valueobject.Money;
 import com.food.ordering.system.payment.service.dataaccess.credithistory.entity.CreditHistoryEntity;
 import com.food.ordering.system.payment.service.domain.entity.CreditHistory;
-import com.food.ordering.system.payment.service.domain.valueObject.CreditHistoryId;
+import com.food.ordering.system.payment.service.domain.valueobject.CreditHistoryId;
 import org.springframework.stereotype.Component;
 
 @Component

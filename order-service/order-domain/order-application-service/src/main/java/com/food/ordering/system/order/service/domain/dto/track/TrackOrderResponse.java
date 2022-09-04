@@ -1,7 +1,6 @@
 package com.food.ordering.system.order.service.domain.dto.track;
 
-
-import com.food.ordering.system.domain.valueObject.OrderStatus;
+import com.food.ordering.system.domain.valueobject.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +17,5 @@ public class TrackOrderResponse {
     private final UUID orderTrackingId;
     @NotNull
     private final OrderStatus orderStatus;
-    @NotNull
-    private List<String> failureMessages;
+    private final List<String> failureMessages;
 }

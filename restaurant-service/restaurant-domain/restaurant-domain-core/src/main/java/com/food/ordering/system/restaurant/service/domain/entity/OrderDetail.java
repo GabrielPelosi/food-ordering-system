@@ -1,14 +1,13 @@
 package com.food.ordering.system.restaurant.service.domain.entity;
 
 import com.food.ordering.system.domain.entity.BaseEntity;
-import com.food.ordering.system.domain.valueObject.Money;
-import com.food.ordering.system.domain.valueObject.OrderId;
-import com.food.ordering.system.domain.valueObject.OrderStatus;
+import com.food.ordering.system.domain.valueobject.Money;
+import com.food.ordering.system.domain.valueobject.OrderId;
+import com.food.ordering.system.domain.valueobject.OrderStatus;
 
 import java.util.List;
 
 public class OrderDetail extends BaseEntity<OrderId> {
-
     private OrderStatus orderStatus;
     private Money totalAmount;
     private final List<Product> products;

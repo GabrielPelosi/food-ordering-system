@@ -1,21 +1,21 @@
 package com.food.ordering.system.restaurant.service.domain.entity;
 
 import com.food.ordering.system.domain.entity.BaseEntity;
-import com.food.ordering.system.domain.valueObject.Money;
-import com.food.ordering.system.domain.valueObject.ProductId;
+import com.food.ordering.system.domain.valueobject.Money;
+import com.food.ordering.system.domain.valueobject.ProductId;
 
 public class Product extends BaseEntity<ProductId> {
-
     private String name;
     private Money price;
-    private int quantity;
+    private final int quantity;
     private boolean available;
 
-    public void updateWithConfirmedNamePriceAndAvailability(String name, Money price, boolean available){
+    public void updateWithConfirmedNamePriceAndAvailability(String name, Money price, boolean available) {
         this.name = name;
         this.price = price;
         this.available = available;
     }
+
     private Product(Builder builder) {
         setId(builder.productId);
         name = builder.name;
@@ -27,7 +27,6 @@ public class Product extends BaseEntity<ProductId> {
     public static Builder builder() {
         return new Builder();
     }
-
 
     public String getName() {
         return name;

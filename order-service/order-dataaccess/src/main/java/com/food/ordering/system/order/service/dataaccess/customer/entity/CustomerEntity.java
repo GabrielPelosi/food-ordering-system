@@ -7,17 +7,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.UUID;
 
-@Table(name = "order_customer_m_view", schema = "customer")
-@Entity
 @Getter
-@Builder
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "order_customer_m_view", schema = "customer")
+@Entity
 public class CustomerEntity {
 
     @Id
     private UUID id;
-
-
 }

@@ -1,6 +1,5 @@
 package com.food.ordering.system.order.service.dataaccess.order.entity;
 
-
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,19 +7,17 @@ import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
 
-@Table(name = "order_items")
-@Entity
-@IdClass(OrderItemEntityId.class)
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@IdClass(OrderItemEntityId.class)
+@Table(name = "order_items")
+@Entity
 public class OrderItemEntity {
-
     @Id
     private Long id;
-
     @Id
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ORDER_ID")

@@ -7,11 +7,10 @@ import java.time.ZonedDateTime;
 
 public class OrderPaidEvent extends OrderEvent {
 
-
     private final DomainEventPublisher<OrderPaidEvent> orderPaidEventDomainEventPublisher;
 
-
-    public OrderPaidEvent(Order order, ZonedDateTime createdAt,
+    public OrderPaidEvent(Order order,
+                          ZonedDateTime createdAt,
                           DomainEventPublisher<OrderPaidEvent> orderPaidEventDomainEventPublisher) {
         super(order, createdAt);
         this.orderPaidEventDomainEventPublisher = orderPaidEventDomainEventPublisher;

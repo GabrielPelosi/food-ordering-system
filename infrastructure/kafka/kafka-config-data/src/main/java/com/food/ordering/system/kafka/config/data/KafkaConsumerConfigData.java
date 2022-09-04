@@ -1,14 +1,14 @@
 package com.food.ordering.system.kafka.config.data;
 
+
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Data
 @Configuration
-@ConfigurationProperties(prefix="kafka-consumer-config")
+@ConfigurationProperties(prefix = "kafka-consumer-config")
 public class KafkaConsumerConfigData {
-
     private String keyDeserializer;
     private String valueDeserializer;
     private String autoOffsetReset;
@@ -24,5 +24,4 @@ public class KafkaConsumerConfigData {
     private Integer maxPollRecords;
     private Integer maxPartitionFetchBytesDefault;
     private Integer maxPartitionFetchBytesBoostFactor;
-
 }
